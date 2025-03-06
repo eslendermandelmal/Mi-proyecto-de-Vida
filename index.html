@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Proyecto de Vida</title>
+    <!-- Se importan fuentes de Google para mejorar el diseño tipográfico -->
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Se importa el ícono de Material Symbols -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <!-- Se vincula el archivo de estilos externo -->
     <link rel="stylesheet" href="style.css">
     <style>
         /* Efecto de luz del botón */
@@ -88,12 +91,15 @@
     </style>
 </head>
 <body>
+    <!-- Barra lateral con navegación -->
     <aside class="sidebar">
         <div class="logo">
+            <!-- Logo e introducción breve -->
             <img src="mi camino.png" alt="logo">
             <h2>¡Bienvenido! Me alegra que estés aquí para compartir mi camino y metas.</h2>
             <h3 id="user-name"></h3> <!-- Aquí aparecerá el nombre del usuario -->
         </div>
+        <!-- Menú de enlaces para navegar entre secciones -->
         <ul class="links">
             <h4>Explorando Mi Mundo</h4>
             <li>
@@ -135,14 +141,17 @@
         </ul>
     </aside>
 
+    <!-- Pantalla de bienvenida -->
     <div class="welcome-screen">
         <h1>Bienvenido a mi proyecto de vida</h1>
     </div>
+    <!-- Pantalla para ingresar el nombre del usuario -->
     <div class="name-input-screen">
         <h1>Por favor, ingresa tu nombre:</h1>
         <input type="text" id="username" placeholder="Tu nombre">
         <button onclick="enterSite()">Entrar</button>
     </div>
+    <!-- Contenido principal del sitio -->
     <div class="main-content">
         <div class="content">
             <h1>Bienvenido a mi Proyecto de Vida, <span id="displayName"></span></h1>
@@ -188,6 +197,7 @@
     </div>
 
     <script>
+        // Al cargarse el contenido de la página se espera 2 segundos y se cambia la visibilidad de las secciones
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 document.querySelector('.welcome-screen').classList.add('hidden');
@@ -196,6 +206,7 @@
             }, 2000);
         });
 
+        // Función para ingresar al sitio, guarda el nombre y muestra el contenido principal
         function enterSite() {
             const name = document.getElementById('username').value;
             if (name) {
@@ -209,7 +220,7 @@
             }
         }
 
-        // Verificar si ya se ha guardado el nombre previamente
+        // Verificar si ya se ha guardado el nombre previamente y, de ser así, mostrar directamente el contenido principal
         window.onload = function() {
             const storedName = localStorage.getItem('userName');
             if (storedName) {
@@ -222,7 +233,7 @@
             }
         };
 
-        // Toggle visibility of image grid
+        // Función para alternar la visibilidad de la sección de imágenes
         function toggleImages() {
             const imageGrid = document.getElementById('imageGrid');
             imageGrid.style.display = imageGrid.style.display === 'none' ? 'block' : 'none';
